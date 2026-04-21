@@ -4,11 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- SEO -->
-<title>Gündoğdu Temizlik | İstanbul Profesyonel Temizlik</title>
-<meta name="description" content="İstanbul'da profesyonel ev, ofis ve inşaat sonrası temizlik hizmetleri. Hızlı, güvenilir ve uygun fiyatlı.">
-<meta name="keywords" content="temizlik firması, istanbul temizlik, ev temizliği, ofis temizliği, inşaat sonrası temizlik">
-<meta name="author" content="Gündoğdu Temizlik">
+<title>Gündoğdu Temizlik | Profesyonel Temizlik Hizmeti</title>
+
+<meta name="description" content="İstanbul'da ev, ofis ve inşaat sonrası profesyonel temizlik hizmetleri.">
+<meta name="keywords" content="temizlik firması, ev temizliği, ofis temizliği, istanbul temizlik">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -27,14 +26,15 @@ body {
 
 body.loaded { opacity:1; }
 
-/* NAVBAR */
+/* NAVBAR FIX */
 .navbar {
   position:fixed;
+  top:0;
   width:100%;
   display:flex;
   justify-content:center;
   backdrop-filter: blur(14px);
-  background: rgba(2,6,23,0.7);
+  background: rgba(2,6,23,0.6);
   z-index:1000;
 }
 
@@ -44,12 +44,14 @@ body.loaded { opacity:1; }
   padding:15px 20px;
   display:flex;
   justify-content:space-between;
+  align-items:center;
 }
 
 .nav-links a {
   margin-left:20px;
-  color:#cbd5f5;
   text-decoration:none;
+  color:#cbd5f5;
+  font-size:14px;
 }
 
 /* HERO */
@@ -66,6 +68,8 @@ body.loaded { opacity:1; }
   width:100%;
   height:100%;
   object-fit:cover;
+  top:0;
+  left:0;
   z-index:-2;
 }
 
@@ -74,18 +78,38 @@ body.loaded { opacity:1; }
   position:absolute;
   inset:0;
   background: rgba(2,6,23,0.65);
+  z-index:-1;
 }
 
-.hero-content { max-width:600px; }
+.hero-content {
+  max-width:600px;
+  position:relative;
+  z-index:2;
+}
 
+.hero h1 {
+  font-size:48px;
+  line-height:1.2;
+  margin-bottom:15px;
+  font-weight:700;
+}
+
+.hero p {
+  color:#cbd5e1;
+  margin-bottom:25px;
+}
+
+/* BUTTON */
 .btn {
-  background:#22c55e;
-  padding:14px 20px;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background: linear-gradient(135deg,#22c55e,#16a34a);
+  padding:14px 22px;
   border-radius:12px;
   text-decoration:none;
   color:white;
-  display:inline-flex;
-  gap:10px;
+  font-weight:600;
 }
 
 /* SECTION */
@@ -98,6 +122,7 @@ body.loaded { opacity:1; }
 /* GALLERY */
 .gallery {
   display:grid;
+  grid-template-columns:1fr;
   gap:20px;
 }
 
@@ -111,24 +136,31 @@ body.loaded { opacity:1; }
   width:100%;
   height:260px;
   object-fit:cover;
+  display:block;
 }
 
+/* TITLE ALWAYS VISIBLE */
 .title {
   position:absolute;
   bottom:15px;
   left:20px;
   font-weight:600;
+  z-index:2;
 }
 
+/* HOVER OVERLAY */
 .overlay {
   position:absolute;
   inset:0;
-  background:rgba(2,6,23,0.8);
+  background:rgba(2,6,23,0.75);
   display:flex;
   align-items:center;
   justify-content:center;
+  text-align:center;
+  padding:20px;
   opacity:0;
-  transition:0.3s;
+  transition:0.4s;
+  color:#e2e8f0;
 }
 
 .item:hover .overlay {
@@ -137,13 +169,12 @@ body.loaded { opacity:1; }
 
 /* CONTACT */
 .contact {
-  background:#020617;
   padding:60px 20px;
 }
 
 .contact p {
   margin:10px 0;
-  color:#cbd5f5;
+  color:#cbd5e1;
 }
 
 /* WHATSAPP */
@@ -160,21 +191,32 @@ body.loaded { opacity:1; }
   justify-content:center;
   color:white;
   font-size:22px;
+  text-decoration:none;
 }
 
+/* RESPONSIVE */
 @media(min-width:768px){
+  .hero h1 { font-size:60px; }
+
   .gallery {
     grid-template-columns:repeat(3,1fr);
   }
+}
+
+/* IMG SAFETY */
+img {
+  max-width:100%;
 }
 </style>
 </head>
 
 <body>
 
+<!-- NAVBAR -->
 <div class="navbar">
   <div class="nav-inner">
-    <div>Gündoğdu Temizlik</div>
+    <div><b>Gündoğdu Temizlik</b></div>
+
     <div class="nav-links">
       <a href="#hizmet">Hizmetler</a>
       <a href="#iletisim">İletişim</a>
@@ -184,51 +226,56 @@ body.loaded { opacity:1; }
 
 <!-- HERO -->
 <section class="hero">
-  <video autoplay muted loop playsinline preload="none" poster="images/ev.webp">
+
+  <!-- video/hero.mp4 -->
+  <video autoplay muted loop playsinline>
     <source src="video/hero.mp4" type="video/mp4">
   </video>
 
   <div class="hero-content">
     <h1>Profesyonel Temizlik Hizmeti</h1>
-    <p>İstanbul genelinde hızlı ve güvenilir temizlik</p>
+    <p>Hızlı, güvenilir ve kaliteli temizlik çözümleri</p>
 
     <a href="https://wa.me/905555555555" class="btn">
-      <i class="fa-brands fa-whatsapp"></i> Yaz
+      <i class="fa-brands fa-whatsapp"></i>
+      Yaz
     </a>
   </div>
 </section>
 
-<!-- HİZMETLER -->
+<!-- SERVICES -->
 <section id="hizmet" class="section">
   <h2>Hizmetler</h2>
 
   <div class="gallery">
+
     <div class="item">
-      <img src="images/ev.webp" loading="lazy">
+      <img src="images/ev.webp" onerror="this.src='https://images.unsplash.com/photo-1581578731548-c64695cc6952'">
       <div class="title">Ev Temizliği</div>
-      <div class="overlay">Evlerinizde profesyonel hijyen sağlıyoruz.</div>
+      <div class="overlay">Evlerinizde en hızlı ve en kaliteli sonuç için profesyonel ekip.</div>
     </div>
 
     <div class="item">
-      <img src="images/ofis.webp" loading="lazy">
+      <img src="images/ofis.webp" onerror="this.src='https://images.unsplash.com/photo-1527515637462-cff94eecc1ac'">
       <div class="title">Ofis Temizliği</div>
-      <div class="overlay">Çalışma alanlarınızı tertemiz yapıyoruz.</div>
+      <div class="overlay">Çalışma alanlarınız için hijyenik ve düzenli ortam.</div>
     </div>
 
     <div class="item">
-      <img src="images/insaat.webp" loading="lazy">
+      <img src="images/insaat.webp" onerror="this.src='https://images.unsplash.com/photo-1603712725038-e9334ae8f39f'">
       <div class="title">İnşaat Sonrası</div>
-      <div class="overlay">Zorlu temizlikleri profesyonel çözüyoruz.</div>
+      <div class="overlay">Zorlu kirleri profesyonel ekipmanlarla temizliyoruz.</div>
     </div>
+
   </div>
 </section>
 
-<!-- İLETİŞİM -->
+<!-- CONTACT -->
 <section id="iletisim" class="contact">
   <h2>İletişim</h2>
 
   <p><i class="fa-solid fa-phone"></i> 0555 555 55 55</p>
-  <p><i class="fa-solid fa-envelope"></i> info@gundogdutemizlik.com</p>
+  <p><i class="fa-solid fa-envelope"></i> info@gundogd utemizlik.com</p>
   <p><i class="fa-solid fa-location-dot"></i> İstanbul, Türkiye</p>
 </section>
 
