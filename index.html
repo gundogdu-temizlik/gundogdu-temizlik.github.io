@@ -17,7 +17,7 @@ html { scroll-behavior: smooth; }
 
 body {
   margin:0;
-  font-family: 'Inter', sans-serif;
+  font-family:'Inter',sans-serif;
   background:#020617;
   color:white;
   opacity:0;
@@ -26,7 +26,7 @@ body {
 
 body.loaded { opacity:1; }
 
-/* NAVBAR FIX */
+/* NAVBAR */
 .navbar {
   position:fixed;
   top:0;
@@ -47,29 +47,25 @@ body.loaded { opacity:1; }
   align-items:center;
 }
 
-.nav-links a {
-  margin-left:20px;
-  text-decoration:none;
-  color:#cbd5f5;
-  font-size:14px;
-}
-
-/* HERO */
+/* HERO (VIDEO + BLUR + ZOOM) */
 .hero {
   height:100vh;
   position:relative;
   display:flex;
   align-items:center;
   padding:20px;
+  overflow:hidden;
 }
 
 .hero video {
   position:absolute;
-  width:100%;
-  height:100%;
+  width:110%;
+  height:110%;
   object-fit:cover;
-  top:0;
-  left:0;
+  top:-5%;
+  left:-5%;
+  filter: blur(0px);
+  animation: zoomSlow 20s infinite alternate;
   z-index:-2;
 }
 
@@ -77,26 +73,28 @@ body.loaded { opacity:1; }
   content:"";
   position:absolute;
   inset:0;
-  background: rgba(2,6,23,0.65);
+  background: rgba(2,6,23,0.6);
   z-index:-1;
+}
+
+@keyframes zoomSlow {
+  from { transform:scale(1); }
+  to { transform:scale(1.1); }
 }
 
 .hero-content {
   max-width:600px;
-  position:relative;
   z-index:2;
 }
 
 .hero h1 {
   font-size:48px;
   line-height:1.2;
-  margin-bottom:15px;
-  font-weight:700;
 }
 
 .hero p {
   color:#cbd5e1;
-  margin-bottom:25px;
+  margin-bottom:20px;
 }
 
 /* BUTTON */
@@ -119,7 +117,33 @@ body.loaded { opacity:1; }
   margin:auto;
 }
 
-/* GALLERY */
+/* GLASS CARDS */
+.glass {
+  background: rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:16px;
+  padding:20px;
+  backdrop-filter: blur(10px);
+}
+
+/* PACKAGES */
+.packages {
+  display:grid;
+  grid-template-columns:1fr;
+  gap:20px;
+}
+
+@media(min-width:768px){
+  .packages { grid-template-columns:repeat(3,1fr); }
+}
+
+.price {
+  font-size:20px;
+  font-weight:700;
+  color:#22c55e;
+}
+
+/* SERVICES */
 .gallery {
   display:grid;
   grid-template-columns:1fr;
@@ -128,27 +152,24 @@ body.loaded { opacity:1; }
 
 .item {
   position:relative;
-  overflow:hidden;
   border-radius:20px;
+  overflow:hidden;
 }
 
 .item img {
   width:100%;
   height:260px;
   object-fit:cover;
-  display:block;
 }
 
-/* TITLE ALWAYS VISIBLE */
 .title {
   position:absolute;
   bottom:15px;
   left:20px;
   font-weight:600;
-  z-index:2;
 }
 
-/* HOVER OVERLAY */
+/* HOVER */
 .overlay {
   position:absolute;
   inset:0;
@@ -156,11 +177,8 @@ body.loaded { opacity:1; }
   display:flex;
   align-items:center;
   justify-content:center;
-  text-align:center;
-  padding:20px;
   opacity:0;
   transition:0.4s;
-  color:#e2e8f0;
 }
 
 .item:hover .overlay {
@@ -168,10 +186,6 @@ body.loaded { opacity:1; }
 }
 
 /* CONTACT */
-.contact {
-  padding:60px 20px;
-}
-
 .contact p {
   margin:10px 0;
   color:#cbd5e1;
@@ -189,35 +203,36 @@ body.loaded { opacity:1; }
   display:flex;
   align-items:center;
   justify-content:center;
-  color:white;
   font-size:22px;
-  text-decoration:none;
+  color:white;
+}
+
+/* SCROLL ANIMATION */
+.reveal {
+  opacity:0;
+  transform:translateY(40px);
+  transition:0.8s;
+}
+
+.reveal.show {
+  opacity:1;
+  transform:translateY(0);
 }
 
 /* RESPONSIVE */
 @media(min-width:768px){
   .hero h1 { font-size:60px; }
-
-  .gallery {
-    grid-template-columns:repeat(3,1fr);
-  }
-}
-
-/* IMG SAFETY */
-img {
-  max-width:100%;
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<!-- NAV -->
 <div class="navbar">
   <div class="nav-inner">
-    <div><b>Gündoğdu Temizlik</b></div>
-
-    <div class="nav-links">
+    <b>Gündoğdu Temizlik</b>
+    <div>
       <a href="#hizmet">Hizmetler</a>
       <a href="#iletisim">İletişim</a>
     </div>
@@ -226,66 +241,125 @@ img {
 
 <!-- HERO -->
 <section class="hero">
-
-  <!-- video/hero.mp4 -->
   <video autoplay muted loop playsinline>
-    <source src="video/hero.mp4" type="video/mp4">
+    <source src="video/hero.mp4">
   </video>
 
-  <div class="hero-content">
+  <div class="hero-content reveal">
     <h1>Profesyonel Temizlik Hizmeti</h1>
-    <p>Hızlı, güvenilir ve kaliteli temizlik çözümleri</p>
+    <p>Ev, ofis ve inşaat sonrası premium temizlik çözümleri</p>
 
-    <a href="https://wa.me/905555555555" class="btn">
-      <i class="fa-brands fa-whatsapp"></i>
-      Yaz
+    <a class="btn" href="https://wa.me/905555555555">
+      <i class="fa-brands fa-whatsapp"></i> Teklif Al
     </a>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section id="hizmet" class="section">
+<!-- NEDEN BİZ -->
+<section class="section reveal">
+  <h2>Neden Biz?</h2>
+
+  <div class="packages">
+
+    <div class="glass">
+      <h3>24 Saat Servis</h3>
+      <p>İhtiyacınız olduğunda her zaman ulaşabilirsiniz.</p>
+    </div>
+
+    <div class="glass">
+      <h3>Sigortalı Ekip</h3>
+      <p>Tüm işler güvence altındadır.</p>
+    </div>
+
+    <div class="glass">
+      <h3>Memnuniyet Garantisi</h3>
+      <p>Sonuçtan memnun kalmazsanız tekrar temizlik.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FİYAT PAKETLERİ -->
+<section class="section reveal">
+  <h2>Fiyat Paketleri</h2>
+
+  <div class="packages">
+
+    <div class="glass">
+      <h3>Ev Temizliği (2+1)</h3>
+      <p class="price">₺1500+</p>
+      <p>Standart detaylı temizlik</p>
+    </div>
+
+    <div class="glass">
+      <h3>Ev Temizliği (3+1 / 3+2)</h3>
+      <p class="price">₺2000+</p>
+      <p>Derin temizlik + mutfak & banyo detay</p>
+    </div>
+
+    <div class="glass">
+      <h3>Ofis Temizliği</h3>
+      <p class="price">₺2000+</p>
+      <p>Aylık / haftalık paketler</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- HİZMETLER -->
+<section id="hizmet" class="section reveal">
   <h2>Hizmetler</h2>
 
   <div class="gallery">
 
     <div class="item">
-      <img src="images/ev.webp" onerror="this.src='https://images.unsplash.com/photo-1581578731548-c64695cc6952'">
+      <img src="images/ev.webp">
       <div class="title">Ev Temizliği</div>
-      <div class="overlay">Evlerinizde en hızlı ve en kaliteli sonuç için profesyonel ekip.</div>
+      <div class="overlay">Profesyonel ekip ile hızlı sonuç</div>
     </div>
 
     <div class="item">
-      <img src="images/ofis.webp" onerror="this.src='https://images.unsplash.com/photo-1527515637462-cff94eecc1ac'">
+      <img src="images/ofis.webp">
       <div class="title">Ofis Temizliği</div>
-      <div class="overlay">Çalışma alanlarınız için hijyenik ve düzenli ortam.</div>
+      <div class="overlay">Kurumsal hijyen standartları</div>
     </div>
 
     <div class="item">
-      <img src="images/insaat.webp" onerror="this.src='https://images.unsplash.com/photo-1603712725038-e9334ae8f39f'">
+      <img src="images/insaat.webp">
       <div class="title">İnşaat Sonrası</div>
-      <div class="overlay">Zorlu kirleri profesyonel ekipmanlarla temizliyoruz.</div>
+      <div class="overlay">Zorlu kirler tamamen temizlenir</div>
     </div>
 
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="iletisim" class="contact">
+<section id="iletisim" class="section reveal">
   <h2>İletişim</h2>
 
   <p><i class="fa-solid fa-phone"></i> 0555 555 55 55</p>
-  <p><i class="fa-solid fa-envelope"></i> info@gundogd utemizlik.com</p>
+  <p><i class="fa-solid fa-envelope"></i> info@gundogdu.com</p>
   <p><i class="fa-solid fa-location-dot"></i> İstanbul, Türkiye</p>
 </section>
 
 <!-- WHATSAPP -->
-<a href="https://wa.me/905555555555" class="float-wa">
+<a class="float-wa" href="https://wa.me/905555555555">
   <i class="fa-brands fa-whatsapp"></i>
 </a>
 
 <script>
 window.onload = () => document.body.classList.add('loaded');
+
+/* SCROLL REVEAL */
+const els = document.querySelectorAll('.reveal');
+
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting) e.target.classList.add('show');
+  });
+});
+
+els.forEach(el=>obs.observe(el));
 </script>
 
 </body>
