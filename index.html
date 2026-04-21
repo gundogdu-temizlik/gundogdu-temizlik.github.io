@@ -3,7 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gundogdu Temizlik | Premium Temizlik</title>
+
+<!-- SEO -->
+<title>Gündoğdu Temizlik | İstanbul Profesyonel Temizlik</title>
+<meta name="description" content="İstanbul'da profesyonel ev, ofis ve inşaat sonrası temizlik hizmetleri. Hızlı, güvenilir ve uygun fiyatlı.">
+<meta name="keywords" content="temizlik firması, istanbul temizlik, ev temizliği, ofis temizliği, inşaat sonrası temizlik">
+<meta name="author" content="Gündoğdu Temizlik">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -17,49 +22,35 @@ body {
   background:#020617;
   color:white;
   opacity:0;
-  transition:opacity 0.6s ease;
+  transition:0.6s;
 }
 
 body.loaded { opacity:1; }
 
-/* NAVBAR FIX */
+/* NAVBAR */
 .navbar {
   position:fixed;
-  top:0;
-  left:0;
   width:100%;
   display:flex;
   justify-content:center;
   backdrop-filter: blur(14px);
-  background: rgba(2,6,23,0.6);
+  background: rgba(2,6,23,0.7);
   z-index:1000;
-  transition:0.3s;
 }
 
 .nav-inner {
-  width:100%;
   max-width:1100px;
+  width:100%;
   padding:15px 20px;
   display:flex;
   justify-content:space-between;
-  align-items:center;
 }
-
-.navbar.scrolled {
-  background: rgba(2,6,23,0.9);
-  box-shadow:0 10px 30px rgba(0,0,0,0.5);
-}
-
-.logo { font-weight:700; }
 
 .nav-links a {
   margin-left:20px;
-  text-decoration:none;
   color:#cbd5f5;
-  font-size:14px;
+  text-decoration:none;
 }
-
-.nav-links a:hover { color:white; }
 
 /* HERO */
 .hero {
@@ -75,8 +66,6 @@ body.loaded { opacity:1; }
   width:100%;
   height:100%;
   object-fit:cover;
-  top:0;
-  left:0;
   z-index:-2;
 }
 
@@ -85,32 +74,19 @@ body.loaded { opacity:1; }
   position:absolute;
   inset:0;
   background: rgba(2,6,23,0.65);
-  z-index:-1;
 }
 
-.hero-content {
-  max-width:600px;
-  animation:fadeUp 1s ease;
-}
+.hero-content { max-width:600px; }
 
-.hero h1 { font-size:40px; margin-bottom:15px; }
-.hero p { color:#94a3b8; margin-bottom:25px; }
-
-/* BUTTON */
 .btn {
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  background: linear-gradient(135deg,#22c55e,#16a34a);
-  padding:14px 22px;
+  background:#22c55e;
+  padding:14px 20px;
   border-radius:12px;
   text-decoration:none;
   color:white;
-  font-weight:600;
-  transition:0.3s;
+  display:inline-flex;
+  gap:10px;
 }
-
-.btn:hover { transform:translateY(-3px) scale(1.05); }
 
 /* SECTION */
 .section {
@@ -122,7 +98,6 @@ body.loaded { opacity:1; }
 /* GALLERY */
 .gallery {
   display:grid;
-  grid-template-columns:1fr;
   gap:20px;
 }
 
@@ -130,60 +105,53 @@ body.loaded { opacity:1; }
   position:relative;
   overflow:hidden;
   border-radius:20px;
-  transform:translateY(60px);
-  opacity:0;
-  transition:0.7s;
-}
-
-.item.show {
-  transform:translateY(0);
-  opacity:1;
 }
 
 .item img {
   width:100%;
   height:260px;
   object-fit:cover;
-  transition:0.6s;
 }
 
-.item:hover img { transform:scale(1.15); }
-
-/* TITLE (HER ZAMAN GÖRÜNÜR) */
 .title {
   position:absolute;
   bottom:15px;
   left:20px;
   font-weight:600;
-  z-index:2;
 }
 
-/* OVERLAY (HOVER) */
 .overlay {
   position:absolute;
   inset:0;
-  background:rgba(2,6,23,0.75);
+  background:rgba(2,6,23,0.8);
   display:flex;
   align-items:center;
   justify-content:center;
-  text-align:center;
-  padding:20px;
   opacity:0;
-  transition:0.4s;
-  font-size:14px;
-  color:#e2e8f0;
+  transition:0.3s;
 }
 
 .item:hover .overlay {
   opacity:1;
 }
 
-/* FLOAT WHATSAPP */
+/* CONTACT */
+.contact {
+  background:#020617;
+  padding:60px 20px;
+}
+
+.contact p {
+  margin:10px 0;
+  color:#cbd5f5;
+}
+
+/* WHATSAPP */
 .float-wa {
   position:fixed;
   bottom:20px;
   right:20px;
-  background:linear-gradient(135deg,#22c55e,#16a34a);
+  background:#22c55e;
   width:55px;
   height:55px;
   border-radius:50%;
@@ -192,24 +160,11 @@ body.loaded { opacity:1; }
   justify-content:center;
   color:white;
   font-size:22px;
-  text-decoration:none;
-  box-shadow:0 10px 25px rgba(0,0,0,0.3);
 }
 
-.float-wa:hover { transform:scale(1.1); }
-
-/* ANIMATION */
-@keyframes fadeUp {
-  from {opacity:0; transform:translateY(30px);}
-  to {opacity:1; transform:translateY(0);}
-}
-
-/* DESKTOP */
 @media(min-width:768px){
-  .hero h1 { font-size:60px; }
-
   .gallery {
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns:repeat(3,1fr);
   }
 }
 </style>
@@ -217,11 +172,9 @@ body.loaded { opacity:1; }
 
 <body>
 
-<!-- NAVBAR -->
-<div class="navbar" id="navbar">
+<div class="navbar">
   <div class="nav-inner">
-    <div class="logo">Gundogdu Temizlik</div>
-
+    <div>Gündoğdu Temizlik</div>
     <div class="nav-links">
       <a href="#hizmet">Hizmetler</a>
       <a href="#iletisim">İletişim</a>
@@ -231,83 +184,61 @@ body.loaded { opacity:1; }
 
 <!-- HERO -->
 <section class="hero">
-  <!-- video/hero.mp4 koy -->
-  <video autoplay muted loop playsinline>
+  <video autoplay muted loop playsinline preload="none" poster="images/ev.webp">
     <source src="video/hero.mp4" type="video/mp4">
   </video>
 
   <div class="hero-content">
-    <h1>Temizlikte Premium Deneyim</h1>
-    <p>Modern ekip, hızlı servis ve kusursuz sonuç</p>
+    <h1>Profesyonel Temizlik Hizmeti</h1>
+    <p>İstanbul genelinde hızlı ve güvenilir temizlik</p>
 
     <a href="https://wa.me/905555555555" class="btn">
-      <i class="fa-brands fa-whatsapp"></i>
-      Yaz
+      <i class="fa-brands fa-whatsapp"></i> Yaz
     </a>
   </div>
 </section>
 
 <!-- HİZMETLER -->
 <section id="hizmet" class="section">
-  <h2>Hizmetlerimiz</h2>
+  <h2>Hizmetler</h2>
 
   <div class="gallery">
-    
     <div class="item">
-      <img src="images/ev.jpg">
+      <img src="images/ev.webp" loading="lazy">
       <div class="title">Ev Temizliği</div>
-      <div class="overlay">
-        Evlerinizde en hızlı ve en kaliteli sonuç için profesyonel ekip.
-      </div>
+      <div class="overlay">Evlerinizde profesyonel hijyen sağlıyoruz.</div>
     </div>
 
     <div class="item">
-      <img src="images/ofis.jpg">
+      <img src="images/ofis.webp" loading="lazy">
       <div class="title">Ofis Temizliği</div>
-      <div class="overlay">
-        Çalışma alanlarınız için hijyenik ve düzenli ortam sağlıyoruz.
-      </div>
+      <div class="overlay">Çalışma alanlarınızı tertemiz yapıyoruz.</div>
     </div>
 
     <div class="item">
-      <img src="images/insaat.jpg">
+      <img src="images/insaat.webp" loading="lazy">
       <div class="title">İnşaat Sonrası</div>
-      <div class="overlay">
-        Zorlu temizlik işlemlerini profesyonel ekipmanlarla çözüyoruz.
-      </div>
+      <div class="overlay">Zorlu temizlikleri profesyonel çözüyoruz.</div>
     </div>
-
   </div>
 </section>
 
-<!-- WHATSAPP FLOAT -->
+<!-- İLETİŞİM -->
+<section id="iletisim" class="contact">
+  <h2>İletişim</h2>
+
+  <p><i class="fa-solid fa-phone"></i> 0555 555 55 55</p>
+  <p><i class="fa-solid fa-envelope"></i> info@gundogdutemizlik.com</p>
+  <p><i class="fa-solid fa-location-dot"></i> İstanbul, Türkiye</p>
+</section>
+
+<!-- WHATSAPP -->
 <a href="https://wa.me/905555555555" class="float-wa">
   <i class="fa-brands fa-whatsapp"></i>
 </a>
 
 <script>
 window.onload = () => document.body.classList.add('loaded');
-
-window.addEventListener('scroll', () => {
-  const nav = document.getElementById('navbar');
-  if(window.scrollY > 50){
-    nav.classList.add('scrolled');
-  } else {
-    nav.classList.remove('scrolled');
-  }
-});
-
-const items = document.querySelectorAll('.item');
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('show');
-    }
-  });
-});
-
-items.forEach(item => observer.observe(item));
 </script>
 
 </body>
