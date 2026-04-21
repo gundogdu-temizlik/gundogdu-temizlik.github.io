@@ -4,69 +4,44 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Gündoğdu Temizlik</title>
+<title>İstanbul Temizlik | 24 Saat Profesyonel Temizlik</title>
+
+<meta name="description" content="Ev, ofis ve inşaat sonrası profesyonel temizlik. Hızlı servis, uygun fiyat.">
+<meta name="keywords" content="temizlik firması istanbul, ev temizliği, ofis temizliği">
+
+<!-- SEO SCHEMA -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CleaningService",
+  "name": "Gündoğdu Temizlik",
+  "areaServed": "Istanbul",
+  "telephone": "+90 555 555 55 55"
+}
+</script>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-html { scroll-behavior:smooth; }
+* { box-sizing:border-box; }
 
 body {
   margin:0;
   font-family:Inter;
   background:#020617;
   color:white;
-  opacity:0;
-  transition:0.6s;
 }
 
-body.loaded { opacity:1; }
-
-/* NAVBAR FIX */
-.navbar {
-  position:fixed;
-  top:0;
-  width:100%;
-  display:flex;
-  justify-content:center;
-  backdrop-filter: blur(14px);
-  background:rgba(2,6,23,0.7);
-  z-index:1000;
-}
-
-.nav-inner {
-  width:100%;
-  max-width:1100px;
-  padding:15px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.nav-links {
-  display:flex;
-  gap:20px;
-}
-
-.nav-links a {
-  text-decoration:none;
-  color:#cbd5e1;
-  font-size:14px;
-  transition:0.3s;
-}
-
-.nav-links a:hover {
-  color:white;
-}
-
-/* HERO */
+/* HERO - CONVERSION FOCUS */
 .hero {
   height:100vh;
   display:flex;
   align-items:center;
-  position:relative;
+  justify-content:center;
+  text-align:center;
   padding:20px;
+  position:relative;
 }
 
 .hero video {
@@ -81,197 +56,236 @@ body.loaded { opacity:1; }
   content:"";
   position:absolute;
   inset:0;
-  background:rgba(2,6,23,0.65);
+  background:rgba(0,0,0,0.65);
   z-index:-1;
 }
 
-.hero-content {
-  max-width:600px;
+.hero h1 {
+  font-size:42px;
+  line-height:1.2;
 }
 
-/* BUTTON */
+.hero p {
+  color:#cbd5e1;
+}
+
+/* CTA BUTTONS */
+.cta {
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  margin-top:20px;
+  flex-wrap:wrap;
+}
+
 .btn {
-  background:#22c55e;
   padding:14px 20px;
   border-radius:12px;
+  text-decoration:none;
+  font-weight:600;
   display:inline-flex;
   gap:10px;
-  text-decoration:none;
+}
+
+.btn-green {
+  background:#22c55e;
   color:white;
+}
+
+.btn-white {
+  background:white;
+  color:black;
+}
+
+/* TRUST BAR */
+.trust {
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  padding:20px;
+  font-size:13px;
+  color:#94a3b8;
 }
 
 /* SECTIONS */
 .section {
-  padding:80px 20px;
-  max-width:1100px;
+  padding:60px 20px;
+  max-width:1000px;
   margin:auto;
 }
 
 /* CARDS */
-.packages {
+.grid {
   display:grid;
   grid-template-columns:1fr;
-  gap:20px;
+  gap:15px;
 }
 
-.glass {
+.card {
+  background:rgba(255,255,255,0.05);
+  padding:20px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,0.08);
+}
+
+/* PRICING */
+.price {
+  color:#22c55e;
+  font-size:20px;
+  font-weight:700;
+}
+
+/* LEAD FORM */
+.form {
   background:rgba(255,255,255,0.05);
   padding:20px;
   border-radius:16px;
-  border:1px solid rgba(255,255,255,0.1);
+  backdrop-filter:blur(10px);
 }
 
-/* GALLERY FIX */
-.gallery {
-  display:grid;
-  grid-template-columns:1fr;
-  gap:20px;
-}
-
-.item {
-  position:relative;
-  border-radius:20px;
-  overflow:hidden;
-  background:#0f172a;
-}
-
-.item img {
+input, select, textarea {
   width:100%;
-  height:260px;
-  object-fit:cover;
-  display:block;
+  margin-top:10px;
+  padding:12px;
+  border-radius:10px;
+  border:none;
+  background:#0f172a;
+  color:white;
 }
 
-/* IMAGE FIX OVERLAY */
-.title {
-  position:absolute;
-  bottom:15px;
-  left:20px;
+button {
+  width:100%;
+  margin-top:15px;
+  padding:14px;
+  background:#22c55e;
+  border:none;
+  border-radius:10px;
+  color:white;
   font-weight:600;
-  z-index:2;
 }
 
-.overlay {
-  position:absolute;
-  inset:0;
-  background:rgba(2,6,23,0.75);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  opacity:0;
-  transition:0.4s;
-}
-
-.item:hover .overlay {
-  opacity:1;
-}
-
-/* CONTACT */
-.contact p {
-  margin:10px 0;
-  color:#cbd5e1;
-}
-
-/* WHATSAPP */
-.float-wa {
+/* FLOAT CTA */
+.float {
   position:fixed;
   bottom:20px;
   right:20px;
   background:#22c55e;
-  width:55px;
-  height:55px;
+  width:60px;
+  height:60px;
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
   color:white;
-  font-size:22px;
-  text-decoration:none;
+  font-size:24px;
 }
 
 /* RESPONSIVE */
 @media(min-width:768px){
-  .gallery { grid-template-columns:repeat(3,1fr); }
+  .hero h1 { font-size:56px; }
+  .grid { grid-template-columns:repeat(3,1fr); }
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR FIXED -->
-<div class="navbar">
-  <div class="nav-inner">
-    <b>Gündoğdu Temizlik</b>
-
-    <div class="nav-links">
-      <a href="#hizmet">Hizmetler</a>
-      <a href="#iletisim">İletişim</a>
-    </div>
-  </div>
-</div>
-
 <!-- HERO -->
 <section class="hero">
+
   <video autoplay muted loop playsinline>
     <source src="video/hero.mp4">
   </video>
 
-  <div class="hero-content">
-    <h1>Profesyonel Temizlik</h1>
-    <p>Hızlı, güvenilir ve kaliteli hizmet</p>
+  <div>
+    <h1>İstanbul’da Profesyonel Temizlik</h1>
+    <p>24 saat hızlı servis • Sigortalı ekip • Garantili temizlik</p>
 
-    <a class="btn" href="https://wa.me/905555555555">
-      <i class="fa-brands fa-whatsapp"></i> Teklif Al
-    </a>
+    <div class="cta">
+      <a class="btn btn-green" href="https://wa.me/905555555555">
+        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+      </a>
+
+      <a class="btn btn-white" href="#form">
+        Teklif Al
+      </a>
+    </div>
   </div>
 </section>
+
+<!-- TRUST -->
+<div class="trust">
+  <span>✔ 24 Saat Servis</span>
+  <span>✔ Sigortalı Ekip</span>
+  <span>✔ %100 Memnuniyet</span>
+</div>
 
 <!-- SERVICES -->
-<section id="hizmet" class="section">
+<section class="section">
   <h2>Hizmetler</h2>
 
-  <div class="gallery">
+  <div class="grid">
 
-    <div class="item">
-      <img src="images/ev.webp"
-      onerror="this.src='https://images.unsplash.com/photo-1581578731548-c64695cc6952'">
-      <div class="title">Ev Temizliği</div>
-      <div class="overlay">Profesyonel temizlik hizmeti</div>
+    <div class="card">
+      <h3>Ev Temizliği</h3>
+      <p>2+1 / 3+1 / villa temizliği</p>
+      <p class="price">₺1500+</p>
     </div>
 
-    <div class="item">
-      <img src="images/ofis.webp"
-      onerror="this.src='https://images.unsplash.com/photo-1527515637462-cff94eecc1ac'">
-      <div class="title">Ofis Temizliği</div>
-      <div class="overlay">Kurumsal hijyen çözümleri</div>
+    <div class="card">
+      <h3>Ofis Temizliği</h3>
+      <p>Günlük / haftalık paketler</p>
+      <p class="price">₺2000+</p>
     </div>
 
-    <div class="item">
-      <img src="images/insaat.webp"
-      onerror="this.src='https://images.unsplash.com/photo-1603712725038-e9334ae8f39f'">
-      <div class="title">İnşaat Sonrası</div>
-      <div class="overlay">Detaylı temizlik</div>
+    <div class="card">
+      <h3>İnşaat Sonrası</h3>
+      <p>Detaylı profesyonel temizlik</p>
+      <p class="price">₺2500+</p>
     </div>
 
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="iletisim" class="section">
-  <h2>İletişim</h2>
+<!-- LEAD FORM -->
+<section id="form" class="section">
 
-  <p>📞 0555 555 55 55</p>
-  <p>✉️ info@gundogdu.com</p>
-  <p>📍 İstanbul, Türkiye</p>
+  <h2>Ücretsiz Teklif Al</h2>
+
+  <div class="form">
+
+    <input id="name" placeholder="Adınız">
+    
+    <select id="service">
+      <option>Ev Temizliği</option>
+      <option>Ofis Temizliği</option>
+      <option>İnşaat Sonrası</option>
+    </select>
+
+    <textarea id="msg" placeholder="Adres / detay"></textarea>
+
+    <button onclick="sendWA()">WhatsApp’a Gönder</button>
+
+  </div>
 </section>
 
-<!-- WHATSAPP -->
-<a class="float-wa" href="https://wa.me/905555555555">
+<!-- FLOAT -->
+<a class="float" href="https://wa.me/905555555555">
   <i class="fa-brands fa-whatsapp"></i>
 </a>
 
 <script>
-window.onload = () => document.body.classList.add('loaded');
+function sendWA(){
+  const n = document.getElementById("name").value;
+  const s = document.getElementById("service").value;
+  const m = document.getElementById("msg").value;
+
+  const text = `Merhaba, ben ${n}
+Hizmet: ${s}
+Detay: ${m}`;
+
+  window.open("https://wa.me/905555555555?text=" + encodeURIComponent(text));
+}
 </script>
 
 </body>
