@@ -1,126 +1,189 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TemizPro - Profesyonel Temizlik Hizmetleri</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f7fa;
-      color: #333;
-    }
-    header {
-      background: #0ea5e9;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    nav {
-      background: #0284c7;
-      padding: 10px;
-      text-align: center;
-    }
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .hero {
-      padding: 60px 20px;
-      text-align: center;
-      background: linear-gradient(to right, #0ea5e9, #38bdf8);
-      color: white;
-    }
-    .section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    footer {
-      background: #0f172a;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-    .btn {
-      background: white;
-      color: #0ea5e9;
-      padding: 10px 20px;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TemizPro | Profesyonel Temizlik</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+/* HEADER */
+header {
+  padding: 15px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+/* HERO */
+.hero {
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.hero img {
+  width: 100%;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  color: #64748b;
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: inline-block;
+  background: #0ea5e9;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* SERVICES */
+.section {
+  padding: 25px 15px;
+}
+
+.section h2 {
+  margin-bottom: 15px;
+}
+
+.services {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* ABOUT */
+.about {
+  color: #475569;
+  font-size: 14px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+/* WHATSAPP FLOAT BUTTON */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  padding: 14px 18px;
+  border-radius: 50px;
+  font-size: 14px;
+  text-decoration: none;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* DESKTOP */
+@media(min-width:768px){
+  .hero {
+    max-width: 900px;
+    margin: auto;
+  }
+
+  .services {
+    flex-direction: row;
+  }
+
+  .card {
+    flex: 1;
+  }
+}
+</style>
+
 </head>
 <body>
 
-<header>
-  <h1>TemizPro</h1>
-  <p>Profesyonel Temizlik Hizmetleri</p>
-</header>
-
-<nav>
-  <a href="#hizmetler">Hizmetler</a>
-  <a href="#hakkimizda">Hakkımızda</a>
-  <a href="#iletisim">İletişim</a>
-</nav>
+<header>TemizPro</header>
 
 <section class="hero">
-  <h2>Eviniz ve Ofisiniz Bizimle Tertemiz</h2>
-  <p>Kaliteli, hızlı ve güvenilir temizlik hizmeti</p>
+  <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" alt="Temizlik">
+
+  <h1>Eviniz Bizimle Tertemiz</h1>
+  <p>Profesyonel, hızlı ve güvenilir temizlik hizmeti</p>
+
   <a href="#iletisim" class="btn">Teklif Al</a>
 </section>
 
-<section id="hizmetler" class="section">
+<section class="section">
   <h2>Hizmetlerimiz</h2>
+
   <div class="services">
     <div class="card">
       <h3>Ev Temizliği</h3>
-      <p>Detaylı ve hijyenik ev temizliği hizmeti.</p>
+      <p>Detaylı hijyen ve profesyonel ekip.</p>
     </div>
+
     <div class="card">
       <h3>Ofis Temizliği</h3>
-      <p>Çalışma alanlarınızı düzenli ve temiz tutuyoruz.</p>
+      <p>Çalışma alanlarınız her zaman temiz.</p>
     </div>
+
     <div class="card">
       <h3>İnşaat Sonrası</h3>
-      <p>İnşaat sonrası profesyonel temizlik çözümleri.</p>
+      <p>Zorlu kirleri profesyonel çözümlerle temizliyoruz.</p>
     </div>
   </div>
 </section>
 
-<section id="hakkimizda" class="section">
+<section class="section">
   <h2>Hakkımızda</h2>
-  <p>
-    TemizPro olarak yıllardır profesyonel temizlik hizmeti sunuyoruz.
-    Müşteri memnuniyeti bizim için en önemli önceliktir.
+  <p class="about">
+    TemizPro olarak müşteri memnuniyetini ön planda tutarak
+    profesyonel temizlik hizmeti sunuyoruz.
   </p>
 </section>
 
 <section id="iletisim" class="section">
   <h2>İletişim</h2>
-  <p><strong>Telefon:</strong> 0555 555 55 55</p>
-  <p><strong>Email:</strong> info@temizpro.com</p>
-  <p><strong>Adres:</strong> İstanbul</p>
+  <p>📞 0555 555 55 55</p>
+  <p>📍 İstanbul</p>
 </section>
 
 <footer>
-  <p>© 2026 TemizPro - Tüm Hakları Saklıdır</p>
+  © 2026 TemizPro
 </footer>
+
+<!-- WHATSAPP -->
+<a class="whatsapp" href="https://wa.me/905555555555" target="_blank">
+  WhatsApp
+</a>
 
 </body>
 </html>
