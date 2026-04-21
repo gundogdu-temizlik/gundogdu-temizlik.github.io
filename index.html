@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TemizPro | Premium Temizlik</title>
+<title>Gundogdu|PremiumTemizlik</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -20,6 +20,7 @@ html { scroll-behavior: smooth; }
 body {
   background: #020617;
   color: white;
+  overflow-x: hidden;
 }
 
 /* NAVBAR */
@@ -36,52 +37,48 @@ body {
   z-index: 1000;
 }
 
-.logo {
-  font-weight: 700;
-  font-size: 18px;
-}
+.logo { font-weight: 700; }
 
 .nav-links a {
-  margin-left: 20px;
-  text-decoration: none;
+  margin-left: 15px;
   color: #cbd5f5;
+  text-decoration: none;
   font-size: 14px;
 }
 
-.nav-cta {
-  background: linear-gradient(135deg,#0ea5e9,#22c55e);
-  padding: 8px 14px;
-  border-radius: 8px;
-  text-decoration: none;
-  color: white;
-  font-size: 13px;
-}
-
-/* HERO */
+/* HERO VIDEO */
 .hero {
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 20px;
   position: relative;
+  display: flex;
+  align-items: center;
+  padding: 20px;
 }
 
-.hero::before {
-  content: "";
+.hero video {
   position: absolute;
-  width: 300px;
-  height: 300px;
-  background: #0ea5e9;
-  filter: blur(120px);
-  top: 20%;
-  left: 10%;
-  opacity: 0.4;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  z-index: -2;
+}
+
+.hero::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(2,6,23,0.6);
+  z-index:-1;
+}
+
+.hero-content {
+  max-width: 600px;
 }
 
 .hero h1 {
-  font-size: 36px;
-  line-height: 1.2;
+  font-size: 38px;
   margin-bottom: 15px;
 }
 
@@ -90,77 +87,104 @@ body {
   margin-bottom: 25px;
 }
 
-.hero-buttons {
-  display: flex;
+/* BUTTONS */
+.btn {
+  display: inline-flex;
+  align-items: center;
   gap: 10px;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg,#0ea5e9,#22c55e);
+  background: linear-gradient(135deg,#22c55e,#16a34a);
   padding: 14px 20px;
   border-radius: 12px;
-  text-decoration: none;
   color: white;
+  text-decoration: none;
   font-weight: 600;
+  transition: 0.3s;
 }
 
-.btn-secondary {
-  border: 1px solid rgba(255,255,255,0.2);
-  padding: 14px 20px;
-  border-radius: 12px;
-  text-decoration: none;
-  color: white;
+.btn:hover {
+  transform: translateY(-2px) scale(1.03);
 }
 
-/* SECTIONS */
+/* SECTION */
 .section {
   padding: 80px 20px;
   max-width: 1100px;
   margin: auto;
 }
 
-.cards {
-  display: flex;
-  flex-direction: column;
+/* GLASS GALLERY */
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 20px;
 }
 
-.card {
-  background: rgba(255,255,255,0.05);
-  padding: 20px;
-  border-radius: 16px;
+.item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
   backdrop-filter: blur(10px);
-  transform: translateY(40px);
+  transform: translateY(60px);
   opacity: 0;
-  transition: 0.6s;
+  transition: 0.7s;
 }
 
-.card.show {
+.item.show {
   transform: translateY(0);
   opacity: 1;
 }
 
-/* WHATSAPP FLOAT (premium küçük) */
-.whatsapp {
+.item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+.item:hover img {
+  transform: scale(1.1);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(2,6,23,0.6);
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.item:hover .overlay {
+  opacity: 1;
+}
+
+/* FLOAT WHATSAPP */
+.float-whatsapp {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: rgba(37,211,102,0.15);
-  border: 1px solid rgba(37,211,102,0.4);
-  padding: 12px 16px;
-  border-radius: 50px;
-  color: #25D366;
+  background: linear-gradient(135deg,#22c55e,#16a34a);
+  padding: 14px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
-  font-weight: 600;
-  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+
+.float-whatsapp:hover {
+  transform: scale(1.1);
 }
 
 /* DESKTOP */
 @media(min-width:768px){
   .hero h1 { font-size: 56px; }
 
-  .cards {
-    flex-direction: row;
+  .gallery {
+    grid-template-columns: repeat(3,1fr);
   }
 }
 </style>
@@ -169,45 +193,63 @@ body {
 <body>
 
 <div class="navbar">
-  <div class="logo">TemizPro</div>
-
+  <div class="logo">Gundogdu Temizlik</div>
   <div class="nav-links">
     <a href="#hizmet">Hizmetler</a>
-    <a href="#hakkimizda">Hakkımızda</a>
   </div>
-
-  <a href="https://wa.me/905555555555" class="nav-cta">WhatsApp</a>
 </div>
 
+<!-- HERO -->
 <section class="hero">
-  <h1>Premium Temizlik Deneyimi</h1>
-  <p>Eviniz ve ofisiniz için modern, hızlı ve güvenilir hizmet</p>
+  <video autoplay muted loop playsinline>
+    <source src="https://cdn.coverr.co/videos/coverr-cleaning-a-window-1580/1080p.mp4" type="video/mp4">
+  </video>
 
-  <div class="hero-buttons">
-    <a href="#hizmet" class="btn-primary">Hizmetleri Gör</a>
-    <a href="https://wa.me/905555555555" class="btn-secondary">WhatsApp</a>
+  <div class="hero-content">
+    <h1>Eviniz Bizimle Parlasın</h1>
+    <p>Premium temizlik deneyimi. Hızlı, güvenilir ve profesyonel.</p>
+
+    <a href="https://wa.me/905555555555" class="btn">
+      <!-- WhatsApp Icon -->
+      <svg width="20" height="20" fill="white" viewBox="0 0 24 24">
+        <path d="M20.5 3.5A11.9 11.9 0 0012 0 11.9 11.9 0 001.5 18.5L0 24l5.7-1.5A11.9 11.9 0 0012 24a11.9 11.9 0 008.5-20.5zM12 22a9.9 9.9 0 01-5-1.4l-.4-.2-3.4.9.9-3.3-.2-.4A9.9 9.9 0 1112 22zm5.5-7.3c-.3-.1-1.8-.9-2.1-1s-.5-.1-.7.1-.8 1-.9 1.2-.4.2-.7.1a8.1 8.1 0 01-2.4-1.5 9 9 0 01-1.7-2.1c-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5s0-.4 0-.6-.7-1.7-1-2.3c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 00-.9.4c-.3.3-1.2 1.2-1.2 3s1.2 3.6 1.4 3.8a13.5 13.5 0 005.2 4.7c.7.3 1.3.5 1.8.6.8.3 1.6.3 2.2.2.7-.1 1.8-.7 2-1.3.3-.6.3-1.2.2-1.3-.1-.1-.3-.2-.6-.3z"/>
+      </svg>
+      Yaz
+    </a>
   </div>
 </section>
 
+<!-- GALLERY -->
 <section id="hizmet" class="section">
-  <h2>Hizmetler</h2>
+  <h2>Hizmetlerimiz</h2>
 
-  <div class="cards">
-    <div class="card">Ev Temizliği</div>
-    <div class="card">Ofis Temizliği</div>
-    <div class="card">İnşaat Sonrası</div>
+  <div class="gallery">
+    <div class="item">
+      <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952">
+      <div class="overlay">Ev Temizliği</div>
+    </div>
+
+    <div class="item">
+      <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac">
+      <div class="overlay">Ofis Temizliği</div>
+    </div>
+
+    <div class="item">
+      <img src="https://images.unsplash.com/photo-1603712725038-e9334ae8f39f">
+      <div class="overlay">İnşaat Sonrası</div>
+    </div>
   </div>
 </section>
 
-<section id="hakkimizda" class="section">
-  <h2>Hakkımızda</h2>
-  <p>Profesyonel ekip, kaliteli hizmet ve müşteri memnuniyeti odaklı çalışma.</p>
-</section>
-
-<a href="https://wa.me/905555555555" class="whatsapp">Yaz</a>
+<!-- FLOAT BUTTON -->
+<a href="https://wa.me/905555555555" class="float-whatsapp">
+  <svg width="24" height="24" fill="white" viewBox="0 0 24 24">
+    <path d="M20.5 3.5A11.9 11.9 0 0012 0 11.9 11.9 0 001.5 18.5L0 24l5.7-1.5A11.9 11.9 0 0012 24a11.9 11.9 0 008.5-20.5z"/>
+  </svg>
+</a>
 
 <script>
-const cards = document.querySelectorAll('.card');
+const items = document.querySelectorAll('.item');
 
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -217,7 +259,7 @@ const observer = new IntersectionObserver(entries => {
   });
 });
 
-cards.forEach(card => observer.observe(card));
+items.forEach(item => observer.observe(item));
 </script>
 
 </body>
