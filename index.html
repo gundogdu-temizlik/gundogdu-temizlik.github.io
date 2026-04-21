@@ -9,9 +9,7 @@
 <meta name="description" content="Ev, ofis ve inşaat sonrası profesyonel temizlik. Hızlı servis, uygun fiyat.">
 <meta name="keywords" content="temizlik firması istanbul, ev temizliği, ofis temizliği">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -41,7 +39,7 @@ body {
 }
 
 /* =======================
-   TOPBAR (PREMIUM FIX)
+   TOPBAR (PREMIUM)
 ======================= */
 .topbar{
   position:fixed;
@@ -144,13 +142,21 @@ body {
 }
 
 /* =======================
-   SECTIONS
+   SECTIONS (FIXED GAP ISSUE)
 ======================= */
 .section {
   padding:60px 20px;
   max-width:1000px;
   margin:auto;
-  min-height:100vh;
+
+  /* ❌ 100vh kaldırıldı (boşluk sorunu fix) */
+  min-height:auto;
+}
+
+/* CONTACT spacing fix */
+.section:last-of-type {
+  padding-top:30px;
+  padding-bottom:80px;
 }
 
 /* =======================
@@ -169,6 +175,9 @@ body {
   border:1px solid rgba(255,255,255,0.08);
 }
 
+/* =======================
+   IMAGES
+======================= */
 .card img{
   width:100%;
   height:160px;
@@ -277,19 +286,16 @@ button {
 
 <body>
 
-<!-- TOPBAR -->
 <div class="topbar">
   GÜNDOĞDU TEMİZLİK
 </div>
 
-<!-- SCROLL INDICATOR -->
 <div class="scroll-indicator">
   <div class="dot active" data-index="0"></div>
   <div class="dot" data-index="1"></div>
   <div class="dot" data-index="2"></div>
 </div>
 
-<!-- HERO -->
 <section class="hero">
   <video autoplay muted loop playsinline>
     <source src="video/hero.mp4">
@@ -303,60 +309,51 @@ button {
       <a class="btn btn-green" href="https://wa.me/905555555555">
         <i class="fa-brands fa-whatsapp"></i> WhatsApp
       </a>
-
-      <a class="btn btn-white" href="#form">
-        Teklif Al
-      </a>
+      <a class="btn btn-white" href="#form">Teklif Al</a>
     </div>
   </div>
 </section>
 
-<!-- TRUST -->
 <div class="trust">
   <span>✔ 24 Saat Servis</span>
   <span>✔ Sigortalı Ekip</span>
   <span>✔ %100 Memnuniyet</span>
 </div>
 
-<!-- SERVICES -->
 <section class="section">
   <h2>Hizmetler</h2>
 
   <div class="grid">
-
     <div class="card">
       <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952">
       <h3>Ev Temizliği</h3>
-      <p>2+1 / 3+1 / villa temizliği</p>
+      <p>2+1 / 3+1 / villa</p>
       <p class="price">₺1500+</p>
     </div>
 
     <div class="card">
       <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac">
       <h3>Ofis Temizliği</h3>
-      <p>Günlük / haftalık paketler</p>
+      <p>Günlük / haftalık</p>
       <p class="price">₺2000+</p>
     </div>
 
     <div class="card">
       <img src="https://images.unsplash.com/photo-1603712725038-e9334ae8f39f">
       <h3>İnşaat Sonrası</h3>
-      <p>Detaylı profesyonel temizlik</p>
+      <p>Detaylı temizlik</p>
       <p class="price">₺2500+</p>
     </div>
-
   </div>
 </section>
 
-<!-- FORM -->
 <section id="form" class="section">
 
   <h2>Ücretsiz Teklif Al</h2>
 
   <div class="form">
-
     <input id="name" placeholder="Adınız">
-    
+
     <select id="service">
       <option>Ev Temizliği</option>
       <option>Ofis Temizliği</option>
@@ -366,17 +363,13 @@ button {
     <textarea id="msg" placeholder="Adres / detay"></textarea>
 
     <button onclick="sendWA()">WhatsApp’a Gönder</button>
-
   </div>
 </section>
 
-<!-- CONTACT -->
 <section class="section">
-
   <h2>İletişim</h2>
 
   <div class="grid">
-
     <div class="card">
       <h3><i class="fa-solid fa-phone"></i> Telefon</h3>
       <p>0555 555 55 55</p>
@@ -391,12 +384,9 @@ button {
       <h3><i class="fa-solid fa-location-dot"></i> Adres</h3>
       <p>İstanbul, Türkiye</p>
     </div>
-
   </div>
-
 </section>
 
-<!-- FLOAT -->
 <a class="float" href="https://wa.me/905555555555">
   <i class="fa-brands fa-whatsapp"></i>
 </a>
@@ -414,7 +404,7 @@ Detay: ${m}`;
   window.open("https://wa.me/905555555555?text=" + encodeURIComponent(text));
 }
 
-/* ✅ STABLE SCROLL TRACKING */
+/* SCROLL TRACKING FIX */
 const sections = document.querySelectorAll('.hero, .section');
 const dots = document.querySelectorAll('.dot');
 
@@ -422,25 +412,18 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if(entry.isIntersecting){
       const index = [...sections].indexOf(entry.target);
-
       dots.forEach(d => d.classList.remove('active'));
       if(dots[index]) dots[index].classList.add('active');
     }
   });
-}, {
-  threshold:0.55
-});
+}, { threshold:0.6 });
 
 sections.forEach(sec => observer.observe(sec));
 
-/* CLICK NAV */
 dots.forEach(dot => {
   dot.addEventListener('click', () => {
     const i = dot.dataset.index;
-    sections[i].scrollIntoView({
-      behavior:"smooth",
-      block:"start"
-    });
+    sections[i].scrollIntoView({behavior:"smooth"});
   });
 });
 </script>
